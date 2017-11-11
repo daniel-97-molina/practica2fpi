@@ -4,11 +4,10 @@ document.getElementById("btn").onclick = function(e){
   request.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
       var respuesta = this.responseText;
-      console.log(respuesta);
-      // fpi_ues@protonmail.com       asunto practica_2
-
+      alert(respuesta);
    }
  };
- request.open("GET", "login.php", true);
+ var formulario = document.getElementById("formulario");
+ request.open("GET", `login.php?usuario=${formulario.usuario.value}&password=${formulario.password.value}`, true);
  request.send();
 };
